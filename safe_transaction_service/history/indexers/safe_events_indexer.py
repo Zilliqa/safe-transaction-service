@@ -530,6 +530,7 @@ class SafeEventsIndexer(EventsIndexer):
             for event_position, event in enumerate(events):
                 if event["event"] == "SafeSetup":
                     setup_event = event
+                    proxy_creation_event = None # TODO: Small fix for Zilliqa network because old events are not archived, only for last 7 days.
                     # If we have both events we should extract Singleton and trace_address from ProxyCreation event
                     if len(events) > 1:
                         if (
